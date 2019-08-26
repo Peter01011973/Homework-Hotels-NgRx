@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-list-of-hotel',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-of-hotel.component.css']
 })
 export class ListOfHotelComponent implements OnInit {
-
+  @Input() listOfHotels;
+  
   constructor() { }
 
   ngOnInit() {

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { hotels } from "src/hotels-list";
+import { Hotel } from "src/hotels-list-interface";
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app-hotels.component.css']
 })
 export class AppComponent {
-  title = 'dz2';
+  hotels: Hotel[] = hotels;
+  
 }

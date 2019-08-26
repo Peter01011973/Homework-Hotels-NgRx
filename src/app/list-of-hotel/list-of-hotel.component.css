@@ -1,0 +1,7 @@
+.hotel-card {
+    background: antiquewhite;
+}
+
+.activity-row:hover,.hotel-card:hover {
+    background: #5fb3f9;
+  }

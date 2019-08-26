@@ -14,7 +14,7 @@ import { FooterComponent } from './footer/footer.component';
     ListOfHotelComponent,
     WeatherComponent,
     ProfileComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
