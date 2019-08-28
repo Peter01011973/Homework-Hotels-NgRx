@@ -7,6 +7,9 @@ import { ListOfHotelComponent } from './list-of-hotel/list-of-hotel.component';
 import { WeatherComponent } from './weather/weather.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FooterComponent } from './footer/footer.component';
+import { SharedModule } from './shared/shared.module';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -15,11 +18,15 @@ import { FooterComponent } from './footer/footer.component';
     WeatherComponent,
     ProfileComponent,
     FooterComponent,
+    DeleteDialogComponent,
   ],
+  entryComponents: [DeleteDialogComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
+  exports: [DeleteDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
