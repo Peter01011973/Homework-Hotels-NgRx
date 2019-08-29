@@ -14,9 +14,30 @@
       <span class="line"> </span>
       <div class="activity_box">
         <div class="scrollbar" id="style-2" >
-          <div class="activity-row" *ngFor="let hotel of listOfHotels;let even=even" 
-          [ngClass]="{'even' : even }" (click)="select(hotel.id)">
-            <div class="activity-desc" >
+          <div class="activity-row" *ngFor="let hotelInfo of listOfHotels;let even=even">
+          <mat-card class="example-card" [ngClass]="{evenBorder : even }" (click)="select(hotelInfo.id)">
+            <!-- <div [ngClass]="{even : myEven }"> -->
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image" [style.background-image]="avatarUrl"></div>
+                <mat-card-title >{{hotelInfo.title}}</mat-card-title>
+                <mat-card-subtitle>{{hotelInfo.address}}</mat-card-subtitle>
+              </mat-card-header>
+              <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+              <mat-card-content>
+                <p >
+                  {{hotelInfo.description}}
+                </p>
+                <p>
+                  {{hotelInfo.phone}}
+              </p>
+              </mat-card-content>
+            <!-- </div> -->
+              <mat-card-actions>
+                <button mat-raised-button color="accent" (click)="delete(hotelInfo.id)">DELETE</button>
+                <button mat-raised-button color="primary">SHARE</button>
+              </mat-card-actions>
+            </mat-card>
+            <!-- <div class="activity-desc" >
               <h5>{{hotel.id+1}} {{hotel.title}}</h5>
               <p>{{hotel.address}}</p>
               <p>{{hotel.description}}</p>
@@ -29,7 +50,7 @@
               </ul>
               <button class="clear" mat-mini-fab (click)="delete(hotel.id)"><i class="material-icons">clear</i></button>
             </div>
-            <div class="clear"> </div>
+            <div class="clear"> </div> -->
           </div>         
         </div>
       </div>

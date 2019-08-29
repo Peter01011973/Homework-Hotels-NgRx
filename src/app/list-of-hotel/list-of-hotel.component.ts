@@ -13,6 +13,7 @@ export class ListOfHotelComponent implements OnInit {
   @Output() selectHotel: EventEmitter<number> = new EventEmitter();
   @Output() deleteHotel: EventEmitter<number> = new EventEmitter();
   deleteMarker = false;
+  avatarUrl = 'url("/assets/images/res.jpg")';
   constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
@@ -24,10 +25,6 @@ export class ListOfHotelComponent implements OnInit {
 
   delete(id: number) {
     const refDialog = this.dialog.open(DeleteDialogComponent);
-    refDialog.afterClosed().subscribe(result => this.deleteMarker = result);
-    if (this.deleteMarker) {
-      this.deleteHotel.emit(id);
-    }
+    refDialog.afterClosed().subscribe(result => {if ( result ) { this.deleteHotel.emit(id); }});
   }
-
 }

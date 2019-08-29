@@ -5,3 +5,16 @@
 .activity-row:hover,.hotel-card:hover {
     background: #5fb3f9;
   }
+
+  .example-card:hover {
+    border: solid 2px burlywood;
+  }
+
+  .evenBorder {
+    border: solid 1px burlywood;
+  }
+  
+  .example-header-image {
+    /* background-image: url('/assets/images/res.jpg'); */
+    background-size: cover;
+  }
