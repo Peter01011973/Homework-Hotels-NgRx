@@ -2,6 +2,7 @@
 
 <div class="element">
   <app-list-of-hotel [listOfHotels]="hotels" 
+    [picture]="picture"
     (selectHotel)="changeHotel($event)"
     (deleteHotel)="deleteHotelFromList($event)">
   </app-list-of-hotel>

@@ -11,6 +11,7 @@ export class AppComponent {
   hotels: Hotel[] = hotels;
   weather = this.hotels[0].weather;
   profile = this.hotels[0].profile;
+  picture = this.hotels[0].picture;
   selected = 0;
 
   changeHotel(id: number) {
@@ -21,7 +22,8 @@ export class AppComponent {
     }
     this.weather = this.hotels[this.selected].weather;
     this.profile = this.hotels[this.selected].profile;
-  }
+    this.picture = this.hotels[this.selected].picture;
+}
 
   deleteHotelFromList(id: number) {
     let newArr: Hotel[] = [];

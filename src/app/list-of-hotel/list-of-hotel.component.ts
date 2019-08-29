@@ -14,6 +14,8 @@ export class ListOfHotelComponent implements OnInit {
   @Output() deleteHotel: EventEmitter<number> = new EventEmitter();
   deleteMarker = false;
   avatarUrl = 'url("/assets/images/res.jpg")';
+  @Input() picture: string;
+
   constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
