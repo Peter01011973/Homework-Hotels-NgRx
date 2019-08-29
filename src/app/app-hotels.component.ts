@@ -44,6 +44,7 @@ export class AppComponent {
     } else {
       this.weather = this.hotels[deletedItemPos].weather;
       this.profile = this.hotels[deletedItemPos].profile;
+      this.picture = this.hotels[deletedItemPos].picture;
     }
   }
 }
