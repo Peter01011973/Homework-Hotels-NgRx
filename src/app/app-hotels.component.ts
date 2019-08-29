@@ -11,13 +11,35 @@ export class AppComponent {
   hotels: Hotel[] = hotels;
   weather = this.hotels[0].weather;
   profile = this.hotels[0].profile;
+  selected = 0;
 
   changeHotel(id: number) {
-       this.weather = this.hotels[id].weather;
-        this.profile = this.hotels[id].profile;
+    let i=0;
+    for (const item of this.hotels) {
+      if (item.id === id) {this.selected = i}
+      i++;
+    }
+    this.weather = this.hotels[this.selected].weather;
+    this.profile = this.hotels[this.selected].profile;
   }
 
-  changeListOfHotel(id: number) {
-    this.hotels = this.hotels.filter((cur) => cur.id !== id);
-  }
+  deleteHotelFromList(id: number) {
+    let newArr: Hotel[] = [];
+    let i = 0;
+    let deletedItemPos: number = 0;
+    for (const item of this.hotels) {
+      (item.id === id) ? deletedItemPos=i : newArr = [...newArr,item];
+      i++;
+    }
+    // this.hotels=this.hotels.filter(cur => cur.id != id);
+    this.hotels = newArr;
+    if (deletedItemPos) {deletedItemPos--};
+    if (this.hotels.length === 0) {
+      this.weather.temperature=0
+    }
+    else {
+      this.weather=this.hotels[deletedItemPos].weather;
+      this.profile=this.hotels[deletedItemPos].profile;
+    }
+  }  
 }

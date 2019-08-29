@@ -3,7 +3,7 @@
 <div class="element">
   <app-list-of-hotel [listOfHotels]="hotels" 
     (selectHotel)="changeHotel($event)"
-    (deleteHotel)="changeListOfHotel($event)">
+    (deleteHotel)="deleteHotelFromList($event)">
   </app-list-of-hotel>
   <div class="element-right">
     <app-weather [weatherInfo]="weather"></app-weather>

@@ -15,7 +15,7 @@
       <div class="activity_box">
         <div class="scrollbar" id="style-2" >
           <div class="activity-row" *ngFor="let hotel of listOfHotels;let even=even" 
-          [ngClass]="{'hotel-card' : even }" (click)="select(hotel.id)">
+          [ngClass]="{'even' : even }" (click)="select(hotel.id)">
             <div class="activity-desc" >
               <h5>{{hotel.id+1}} {{hotel.title}}</h5>
               <p>{{hotel.address}}</p>
