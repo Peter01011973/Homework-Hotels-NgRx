@@ -1,57 +1,72 @@
 <div class="element-left">
-  <div class="element-bg-img"><img [src]="picture" alt="" class="img-responsive"> </div> 
-    <div class="element-left-bottom">
-      <div class="ele-strip">
-        <ul>
-          <li><a href="index.html#">Hotel</a></li>
-          <li><a href="index.html#">Fishing</a></li>
-          <li><a href="index.html#">Tours</a></li>
-          <li class="anc-bor"><a href="index.html#">Weather</a></li>
-        </ul>
+  <div class="element-bg-img"><img [src]="picture" alt="" class="img-responsive"> </div>
+  <div class="element-left-bottom">
+    <div *ngIf="navORsearch else searching" class="ele-strip">
+      <ul>
+        <li>
+          <button class="searchBtn" mat-icon-button (click)="switchSearchOn()">
+            <i class="material-icons">search</i>
+          </button>
+        </li>
+        <li><a href="index.html#">Hotel</a></li>
+        <li><a href="#">Fishing</a></li>
+        <li><a href="#">Tours</a></li>
+        <li class="anc-bor"><a href="#">Weather</a></li>
+      </ul>
+    </div>
+    <ng-template #searching>
+      <div class="searching-container">
+        <div id="top">
+          <legend id="leg">Searching hotels</legend>
+          <div>
+            <button mat-icon-button (click)="SearchingClose()" class="closeButtn">
+              <i class="material-icons">close</i>
+            </button>
+          </div>
+        </div>
+        <div id="bottom">
+          <mat-form-field>
+            <input matInput placeholder="by name" [value]="byName" #inputByNameRef
+              (keyup)="SearchingByName(inputByNameRef.value)">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="by description" [value]="byDescription" #inputByDescriptionRef
+              (keyup)="SearchingByDescription(inputByDescriptionRef.value)">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>by stars</mat-label>
+            <mat-select [(value)]="byStars">
+              <mat-option *ngFor="let hotel of hotelsStars" [value]="hotel.value">
+                {{hotel.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
       </div>
+    </ng-template>
     <div class="village">
       <h3>Righteous indignation & like</h3>
-      <span class="line"> </span>
       <div class="activity_box">
-        <div class="scrollbar" id="style-2" >
-          <div class="activity-row" *ngFor="let hotelInfo of listOfHotels;let even=even">
-          <mat-card class="example-card" [ngClass]="{evenBorder : even }" (click)="select(hotelInfo.id)">
-            <!-- <div [ngClass]="{even : myEven }"> -->
+        <div class="scrollbar" id="style-2">
+          <div class="activity-row"
+            *ngFor="let hotelInfo of listOfHotels | searchingHotel: byName: byDescription: byStars; let even = even">
+            <mat-card class="example-card" [ngClass]="{evenBorder : even }" (click) = "select(hotelInfo.id)">
               <mat-card-header>
-                <div mat-card-avatar class="example-header-image" [style.background-image]="avatarUrl"></div>
-                <mat-card-title >{{hotelInfo.title}}</mat-card-title>
+                <div mat-card-avatar class="example-header-image" [style.background-image]="avatarUrl">
+                </div>
+                <mat-card-title>{{hotelInfo.title}}</mat-card-title>
                 <mat-card-subtitle>{{hotelInfo.address}}</mat-card-subtitle>
               </mat-card-header>
-              <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
               <mat-card-content>
-                <p >
-                  {{hotelInfo.description}}
-                </p>
-                <p>
-                  {{hotelInfo.phone}}
-              </p>
+                <p>{{hotelInfo.description}}</p>
+                <p>{{hotelInfo.phone}}</p>
               </mat-card-content>
-            <!-- </div> -->
               <mat-card-actions>
                 <button mat-raised-button color="accent" (click)="delete(hotelInfo.id)">DELETE</button>
-                <button mat-raised-button color="primary">SHARE</button>
+                <button mat-raised-button color="primary" (click)="chooseFavorite(hotelInfo.id)">Favorite</button>
               </mat-card-actions>
             </mat-card>
-            <!-- <div class="activity-desc" >
-              <h5>{{hotel.id+1}} {{hotel.title}}</h5>
-              <p>{{hotel.address}}</p>
-              <p>{{hotel.description}}</p>
-              <h6>Tel: {{hotel.phone}}</h6>
-            </div>
-            <div class="activity-img">
-              <ul>
-                <li><img src={{hotel.photos[0]}}  alt=""/></li>
-                <li><img src={{hotel.photos[1]}}  alt=""/></li>
-              </ul>
-              <button class="clear" mat-mini-fab (click)="delete(hotel.id)"><i class="material-icons">clear</i></button>
-            </div>
-            <div class="clear"> </div> -->
-          </div>         
+          </div>
         </div>
       </div>
     </div>

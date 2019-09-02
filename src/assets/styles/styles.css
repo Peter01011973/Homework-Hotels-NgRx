@@ -53,13 +53,13 @@ h1 {
   font-family: 'Quicksand', sans-serif;
 }
 .element {
-  width: 40%;
-  margin: 0 auto 7em;
+  width: 45%;
+  /* margin: 0 auto 7em; */
 }
 .ele-strip {
   background: #fda660;
-  padding: 1em 1em;
-  margin: -3px 0px 0px 0px;
+  padding: 0em 0em;
+  margin: -4px 0px 0px 0px;
 }
 .temperatur {
   background: #5fb3f9;
@@ -228,14 +228,14 @@ i.text-info{
 	margin-bottom:1em;
 }
 .scrollbar{
-	height:115px;
+	height:185px;
 	background:#fff;
 	overflow-y: scroll;
        padding: 1em 1em 0em 1em;
 }
 .activity_box{
   background: #fff;
-  min-height: 120px;
+  min-height: 190px;
 }
 #style-2::-webkit-scrollbar-track
 {
@@ -271,7 +271,7 @@ i.text-info{
 /*--village start here--*/
 .village {
   background: #fff;
-  padding: 1.5em 1em;
+  padding: 0.5em 0.5em;
   border-radius: 0px 0px 5px 5px;
 }
 .village h3 {

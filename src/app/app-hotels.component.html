@@ -2,17 +2,18 @@
 
 <div class="element">
   <app-list-of-hotel [listOfHotels]="hotels" 
-    [picture]="picture"
+    [picture]="hotel.picture"
     (selectHotel)="changeHotel($event)"
-    (deleteHotel)="deleteHotelFromList($event)">
+    (deleteHotel)="deleteHotelFromList($event)"
+    (addToFavorite)="addToFavorite($event)">
   </app-list-of-hotel>
   <div class="element-right">
-    <app-weather [weatherInfo]="weather"></app-weather>
-    <app-profile [profileInfo]="profile"></app-profile>
+    <app-weather [weatherInfo]="hotel.weather"></app-weather>
+    <app-profile [profileInfo]="hotel.profile"></app-profile>
   </div>
   <div class="clear"></div>
 </div>
 
 <app-footer></app-footer>
 
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->

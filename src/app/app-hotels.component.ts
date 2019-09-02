@@ -8,22 +8,13 @@ import { Hotel } from 'src/hotels-list-interface';
   styleUrls: ['./app-hotels.component.css']
 })
 export class AppComponent {
-  hotels: Hotel[] = hotels;
-  weather = this.hotels[0].weather;
-  profile = this.hotels[0].profile;
-  picture = this.hotels[0].picture;
-  selected = 0;
+  public hotels: Hotel[] = hotels;
+  public hotel: Hotel = this.hotels[0];
+  public favoriteHotels: Hotel[] = [];
 
   changeHotel(id: number) {
-    let i = 0;
-    for (const item of this.hotels) {
-      if (item.id === id) { this.selected = i; }
-      i++;
-    }
-    this.weather = this.hotels[this.selected].weather;
-    this.profile = this.hotels[this.selected].profile;
-    this.picture = this.hotels[this.selected].picture;
-}
+    this.hotel = this.hotels[this.hotels.findIndex(item => item.id === id)];
+  }
 
   deleteHotelFromList(id: number) {
     let newArr: Hotel[] = [];
@@ -35,16 +26,15 @@ export class AppComponent {
     }
     // this.hotels=this.hotels.filter(cur => cur.id != id);
     this.hotels = newArr;
+
     if ( deletedItemPos ) { deletedItemPos --; }
     if ( this.hotels.length === 0 ) {
-      this.weather.temperature = 0;
-      this.weather.wind = 0;
-      this.profile.followers = 0;
-      this.profile.following = 0;
-    } else {
-      this.weather = this.hotels[deletedItemPos].weather;
-      this.profile = this.hotels[deletedItemPos].profile;
-      this.picture = this.hotels[deletedItemPos].picture;
+     } else {
+      this.hotel = this.hotels[deletedItemPos];
     }
+  }
+
+  addToFavorite(id: number) {
+    this.favoriteHotels = [...this.favoriteHotels,this.hotels[id]];
   }
 }

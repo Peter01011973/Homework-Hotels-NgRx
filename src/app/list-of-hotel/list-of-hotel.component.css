@@ -14,3 +14,56 @@
     /* background-image: url('/assets/images/res.jpg'); */
     background-size: cover;
   }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+.searchBtn {
+  max-width: 21px;
+  color: white;
+}
+
+.searching-container {
+  display: flex;
+  flex-direction: column;
+  background: #fda660;
+}
+#top {
+  display: inline-flex;
+  justify-content: space-between;
+  height: 25px;
+}
+
+#bottom {
+  display: flex;
+  flex-direction: row;
+  border:1px solid brown;
+  border-radius:5px;
+}
+
+#leg {
+  height: 25px;  
+}
+
+.searching-container mat-form-field {
+  width: 30%;
+  padding: 4px;
+  font-size: 0.8rem;
+}
+
+.closeButtn {
+  position: relative;
+  float: right;
+  color: black;
+  top: -10px;
+  right: 0px;
+}
+
+.doneButtn {
+  position: relative;
+  float: right;
+  color: greenyellow;
+  top: -10px;
+  right: 0px;
+}

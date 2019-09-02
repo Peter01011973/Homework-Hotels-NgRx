@@ -2,14 +2,14 @@
     <div class="profile-info">
         <h4>Nam libero voluptatem</h4>
         <span class="w-line"> </span>
-        <img src='{{profileInfo.photo}}' alt=""  class="img-responsive">
+        <img src='{{profileInfo?.photo}}' alt=""  class="img-responsive">
     </div>
     <div class="teddy-follow">
         <ul>
-            <li class="folw-h"><h4>{{profileInfo.followers}}</h4>
+            <li class="folw-h"><h4>{{profileInfo?.followers}}</h4>
                 <p>follower</p>
             </li>
-            <li><h4>{{profileInfo.following}}</h4>
+            <li><h4>{{profileInfo?.following}}</h4>
                 <p>following</p>
             </li>
         </ul>
