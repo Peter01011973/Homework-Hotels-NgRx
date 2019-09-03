@@ -49,12 +49,13 @@ h1 {
   text-align: center;
   font-size: 2em;
   color: #fff;
-  margin: 3em 0em 2em 0em;
+  margin: 1em 0em 1em 0em;
   font-family: 'Quicksand', sans-serif;
 }
 .element {
-  width: 45%;
-  /* margin: 0 auto 7em; */
+  width: 90%;
+
+  margin: 0 7em;
 }
 .ele-strip {
   background: #fda660;
@@ -66,7 +67,7 @@ h1 {
   text-align: center;
   padding: 1em 1em;
   border-radius: 5px;
-  margin-bottom: 2.5em;
+  margin-bottom: 2em;
 }
 .ele-strip ul{
   text-align: center;
@@ -140,14 +141,22 @@ span.cloud {
   height: 50px;
   display: inline-block;
 }
+/* changed */
 .element-left {
   float: left;
-  width:50%;
+  width:40%;
 }
 .element-right {
-  float: right;
-   width: 35%;
+   width: 25%;
 }
+
+.element-favorite {
+  float: right;
+  width: 25%;
+  background: wheat;
+  border: solid 2px wheat;
+}
+
 .temperatur h5 {
   color: #fff;
   font-size: 1em;
@@ -180,7 +189,7 @@ ul li.anc-bor {
   padding: 1em;
   margin-bottom: 1em;
 }
-.grid-1, .grid-2, .grid-3, .grid-4{
+/* .grid-1, .grid-2, .grid-3, .grid-4{
     display: inline-block;
 }
 .grid-1 {
@@ -189,7 +198,7 @@ ul li.anc-bor {
 .grid-1, .grid-3{
 	margin-right:10%;
 	width: 27%;
-}
+} */
 .activity-row, .activity-row1{
   text-align: left;
 }
@@ -282,6 +291,7 @@ i.text-info{
   font-family: 'Roboto', sans-serif;
 }
 .copy-right {
+
   text-align: center;
   padding:0em 0em 2em 0em;
 }
@@ -317,7 +327,7 @@ i.text-info{
   width: 40%;
 }
 .element {
-  width: 43%;
+  width: 80%;
 }
 .ele-strip ul li {
   padding: 0em 0.4em;
@@ -334,7 +344,7 @@ i.text-info{
   width: 55%;
 }
 .element {
-  width: 44%;
+  width: 84%;
 }
 .temperatur {
     margin-bottom: 2.5em;
@@ -345,12 +355,12 @@ i.text-info{
   font-size: 0.95em;
 }
 .element {
-  width: 47.5%;
+  width: 87.5%;
 }
 }
 @media(max-width:1024px){
 .element {
-  width: 58.5%;
+  width: 88.5%;
 }
 .temperatur {
     margin-bottom: 2.3em;
@@ -358,7 +368,7 @@ i.text-info{
 }
 @media(max-width:768px){
 .element {
-  width: 76.5%;
+  width: 86.5%;
 }
 .temperatur {
     margin-bottom: 2.1em;

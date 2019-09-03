@@ -1,18 +1,28 @@
 <h1>Hot Weather Widget</h1>
 
-<div class="element">
-  <app-list-of-hotel [listOfHotels]="hotels" 
-    [picture]="hotel.picture"
+<div class="element" fxLayout="row" fxLayoutAlign="space-around stretch" fxLayoutGap="15%">
+    <div fxflex="25%" class="element-left" fxLayout="column" fxLayoutAlign=" none">
+  <app-list-of-hotel 
+    [listOfHotels]="hotels" 
+    [picture]="hotel.picture" 
     (selectHotel)="changeHotel($event)"
-    (deleteHotel)="deleteHotelFromList($event)"
+    (deleteHotel)="deleteHotelFromList($event)" 
     (addToFavorite)="addToFavorite($event)">
   </app-list-of-hotel>
-  <div class="element-right">
+</div>
+  <div fxflex="25%" class="element-right">
     <app-weather [weatherInfo]="hotel.weather"></app-weather>
     <app-profile [profileInfo]="hotel.profile"></app-profile>
   </div>
-  <div class="clear"></div>
+  <div fxflex="25%" class="element-favorite">
+    <app-favorite-hotels 
+      [favoriteHotels] = "favoriteHotels"
+      (deleteFavHotel) = "deleteFavoriteHotel($event)">     
+    </app-favorite-hotels>
+  </div>
+  <!-- <div class="clear"></div> -->
 </div>
+
 
 <app-footer></app-footer>
 

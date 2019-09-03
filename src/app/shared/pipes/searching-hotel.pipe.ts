@@ -10,6 +10,8 @@ export class SearchingHotelPipe implements PipeTransform {
     if (findByDescription) {hotelsArr=[...hotelsArr.filter(hotel => hotel.description.includes(findByDescription))]}
     if (Stars) {hotelsArr=[...hotelsArr.filter(hotel => hotel.stars === Stars)]}
     return hotelsArr; 
+
+
     
   }
 }

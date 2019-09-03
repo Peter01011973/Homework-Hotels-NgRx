@@ -1,4 +1,4 @@
-<div class="element-left">
+
   <div class="element-bg-img"><img [src]="picture" alt="" class="img-responsive"> </div>
   <div class="element-left-bottom">
     <div *ngIf="navORsearch else searching" class="ele-strip">
@@ -52,7 +52,8 @@
             *ngFor="let hotelInfo of listOfHotels | searchingHotel: byName: byDescription: byStars; let even = even">
             <mat-card class="example-card" [ngClass]="{evenBorder : even }" (click) = "select(hotelInfo.id)">
               <mat-card-header>
-                <div mat-card-avatar class="example-header-image" [style.background-image]="avatarUrl">
+                <!-- <img matListAvatar [src]='hotelInfo.picture'> -->
+                <div mat-card-avatar class="example-header-image"  [style.background-image]="avatarUrl">
                 </div>
                 <mat-card-title>{{hotelInfo.title}}</mat-card-title>
                 <mat-card-subtitle>{{hotelInfo.address}}</mat-card-subtitle>
@@ -61,7 +62,7 @@
                 <p>{{hotelInfo.description}}</p>
                 <p>{{hotelInfo.phone}}</p>
               </mat-card-content>
-              <mat-card-actions>
+              <mat-card-actions fxLayout="row" fxLayoutAlign="space-around center">
                 <button mat-raised-button color="accent" (click)="delete(hotelInfo.id)">DELETE</button>
                 <button mat-raised-button color="primary" (click)="chooseFavorite(hotelInfo.id)">Favorite</button>
               </mat-card-actions>
@@ -71,4 +72,3 @@
       </div>
     </div>
   </div>
-</div>

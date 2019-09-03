@@ -8,8 +8,9 @@ import { WeatherComponent } from './weather/weather.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FooterComponent } from './footer/footer.component';
 import { SharedModule } from './shared/shared.module';
-import { DeleteDialogComponent } from './list-of-hotel/delete-dialog/delete-dialog.component';
+import { DeleteDialogComponent } from './shared/dialogs/delete-dialog/delete-dialog.component';
 import { FavoriteHotelsComponent } from './favorite-hotels/favorite-hotels.component';
+import { WarningNotAddComponent } from './shared/dialogs/warning-not-add/warning-not-add.component';
 
 
 @NgModule({
@@ -20,16 +21,17 @@ import { FavoriteHotelsComponent } from './favorite-hotels/favorite-hotels.compo
     ProfileComponent,
     FooterComponent,
     DeleteDialogComponent,
-    FavoriteHotelsComponent
+    FavoriteHotelsComponent,
+    WarningNotAddComponent
     
   ],
-  entryComponents: [DeleteDialogComponent],
+  entryComponents: [DeleteDialogComponent, WarningNotAddComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
   ],
-  exports: [DeleteDialogComponent],
+  exports: [DeleteDialogComponent, WarningNotAddComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
-import {MatDialogModule, MatDialog} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
@@ -9,7 +9,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { SearchingHotelPipe } from './pipes/searching-hotel.pipe';
-
+import {MatListModule} from '@angular/material/list';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [SearchingHotelPipe],
@@ -20,7 +21,9 @@ import { SearchingHotelPipe } from './pipes/searching-hotel.pipe';
     MatInputModule,
     MatIconModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatListModule,
+    FlexLayoutModule
   ],
   exports: [
     MatButtonModule,
@@ -31,7 +34,9 @@ import { SearchingHotelPipe } from './pipes/searching-hotel.pipe';
     MatIconModule,
     MatFormFieldModule,
     MatSelectModule,
-    SearchingHotelPipe
+    SearchingHotelPipe,
+    MatListModule,
+    FlexLayoutModule
   ]
 })
 export class SharedModule { }

@@ -1,8 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Hotel } from 'src/hotels-list-interface';
-
-import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog} from '@angular/material/dialog';
+import { DeleteDialogComponent } from '../shared/dialogs/delete-dialog/delete-dialog.component';
 
 export interface HotelStars {
   value: number;

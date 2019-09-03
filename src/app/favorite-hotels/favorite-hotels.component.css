@@ -1,0 +1,11 @@
+.element-favorite {
+
+  
+    overflow-y: scroll;
+    
+    /* for Firefox */
+    height: 500px;
+}
+.evenFavorite {
+    background: rebeccapurple;
+}
