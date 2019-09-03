@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
-import { hotels } from 'src/hotels-list';
-import { Hotel } from 'src/hotels-list-interface';
+import { hotels } from 'src/app/mock-data/hotels-list';
+import { Hotel } from 'src/app/mock-data/hotels-list-interface';
 import { MatDialog} from '@angular/material/dialog';
 import { WarningNotAddComponent } from './shared/dialogs/warning-not-add/warning-not-add.component';
 
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app-hotels.component.html',
-  styleUrls: ['./app-hotels.component.css']
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   public hotels: Hotel[] = hotels;
   public hotel: Hotel = this.hotels[0];

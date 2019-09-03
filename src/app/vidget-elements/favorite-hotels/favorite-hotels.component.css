@@ -1,0 +1,21 @@
+
+.evenFavorite {
+    background: rebeccapurple;
+}
+
+.selected {
+    background-color: #CFD8DC !important;
+    color: white;
+}
+
+.favItem:hover{
+    background-color: #BBD8DC !important;
+    color: white;
+}
+
+.example-viewport {
+    height: 420px;
+    width: 300px;
+    background: white;
+    border: 1px solid black;
+  }

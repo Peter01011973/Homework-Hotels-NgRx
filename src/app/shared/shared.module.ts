@@ -11,19 +11,12 @@ import {MatSelectModule} from '@angular/material/select';
 import { SearchingHotelPipe } from './pipes/searching-hotel.pipe';
 import {MatListModule} from '@angular/material/list';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [SearchingHotelPipe],
   imports: [
-    CommonModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatInputModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatListModule,
-    FlexLayoutModule
+
   ],
   exports: [
     MatButtonModule,
@@ -36,7 +29,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatSelectModule,
     SearchingHotelPipe,
     MatListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ScrollingModule
   ]
 })
 export class SharedModule { }

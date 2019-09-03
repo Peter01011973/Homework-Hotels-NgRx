@@ -1,3 +1,7 @@
+import { Weather } from './weather-interface';
+import { Profile } from './profile-interface';
+
+
 export interface Hotel {
     id: number;
     title: string;
@@ -6,15 +10,7 @@ export interface Hotel {
     phone: string;
     picture: string;
     photos: string[];
-    weather: {
-      temperature: number,
-      wind: number,
-      icon: string
-    };
-    profile: {
-      followers: number,
-      following: number,
-      photo: string
-    };
+    weather: Weather;
+    profile: Profile;
     stars: number;
 }

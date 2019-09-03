@@ -2,14 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app-hotels.component';
-import { ListOfHotelComponent } from './list-of-hotel/list-of-hotel.component';
-import { WeatherComponent } from './weather/weather.component';
-import { ProfileComponent } from './profile/profile.component';
-import { FooterComponent } from './footer/footer.component';
+import { AppComponent } from './app.component';
+import { ListOfHotelComponent } from './vidget-elements/list-of-hotel/list-of-hotel.component';
+import { WeatherComponent } from './vidget-elements/weather/weather.component';
+import { ProfileComponent } from './vidget-elements/profile/profile.component';
+import { FooterComponent } from './vidget-elements/footer/footer.component';
 import { SharedModule } from './shared/shared.module';
 import { DeleteDialogComponent } from './shared/dialogs/delete-dialog/delete-dialog.component';
-import { FavoriteHotelsComponent } from './favorite-hotels/favorite-hotels.component';
+import { FavoriteHotelsComponent } from './vidget-elements/favorite-hotels/favorite-hotels.component';
 import { WarningNotAddComponent } from './shared/dialogs/warning-not-add/warning-not-add.component';
 
 

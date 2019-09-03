@@ -1,18 +1,16 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Hotel } from 'src/hotels-list-interface';
+import { Hotel } from 'src/app/mock-data/hotels-list-interface';
 import { MatDialog} from '@angular/material/dialog';
-import { DeleteDialogComponent } from '../shared/dialogs/delete-dialog/delete-dialog.component';
-
-export interface HotelStars {
-  value: number;
-  viewValue: string;
-}
+import { DeleteDialogComponent } from '../../shared/dialogs/delete-dialog/delete-dialog.component';
+import { HotelStars } from 'src/app/mock-data/stars-interface';
+import { hotelsStars } from 'src/app/mock-data/hotelStars';
 
 @Component({
   selector: 'app-list-of-hotel',
   templateUrl: './list-of-hotel.component.html',
   styleUrls: ['./list-of-hotel.component.css']
 })
+
 export class ListOfHotelComponent {
 
   @Input() public listOfHotels: Hotel[];
@@ -24,14 +22,7 @@ export class ListOfHotelComponent {
 
   public navORsearch: boolean = true;
 
-  avatarUrl = 'url("/assets/images/res.jpg")';
-
-  hotelsStars: HotelStars[] = [
-    { value: 0, viewValue: 'all hotels' },
-    { value: 3, viewValue: '***' },
-    { value: 4, viewValue: '****' },
-    { value: 5, viewValue: '*****' }
-  ];
+  public hotelsStars: HotelStars[] = hotelsStars;
 
   public byName: string = "";
   public byDescription: string = "";
@@ -44,8 +35,7 @@ export class ListOfHotelComponent {
   }
 
   delete(id: number) {
-    const refDialog = this.dialog.open(DeleteDialogComponent);
-    refDialog.afterClosed().subscribe(result => { if (result) { this.deleteHotel.emit(id); } });
+    this.dialog.open(DeleteDialogComponent).afterClosed().subscribe(result => { if (result) { this.deleteHotel.emit(id); } });
   }
 
   SearchingClose() {
