@@ -8,5 +8,5 @@ import { Profile } from 'src/app/mock-data/profile-interface';
 })
 
 export class ProfileComponent {
-  @Input() public profileInfo:Profile;
+  @Input() public profileInfo: Profile;
 }

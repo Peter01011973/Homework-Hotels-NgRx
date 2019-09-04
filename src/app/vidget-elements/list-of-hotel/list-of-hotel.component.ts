@@ -4,6 +4,7 @@ import { MatDialog} from '@angular/material/dialog';
 import { DeleteDialogComponent } from '../../shared/dialogs/delete-dialog/delete-dialog.component';
 import { HotelStars } from 'src/app/mock-data/stars-interface';
 import { hotelsStars } from 'src/app/mock-data/hotelStars';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-list-of-hotel',
@@ -15,6 +16,8 @@ export class ListOfHotelComponent {
 
   @Input() public listOfHotels: Hotel[];
   @Input() public picture: string;
+  @Input() public selHotel: Hotel;
+
 
   @Output() public selectHotel: EventEmitter<number> = new EventEmitter();
   @Output() public deleteHotel: EventEmitter<number> = new EventEmitter();
@@ -24,37 +27,37 @@ export class ListOfHotelComponent {
 
   public hotelsStars: HotelStars[] = hotelsStars;
 
-  public byName: string = "";
-  public byDescription: string = "";
+  public byName: string = '';
+  public byDescription: string = '';
   public byStars: number = 0;
 
-  constructor(public dialog: MatDialog) { }
+  public constructor(public dialog: MatDialog) { }
 
-  select(id: number) {
+  public select(id: number): void {
     this.selectHotel.emit(id);
   }
 
-  delete(id: number) {
+  public delete(id: number): void {
     this.dialog.open(DeleteDialogComponent).afterClosed().subscribe(result => { if (result) { this.deleteHotel.emit(id); } });
   }
 
-  SearchingClose() {
+  public SearchingClose(): void {
     this.navORsearch = !this.navORsearch;
   }
 
-  SearchingByName(value: string) {
+  public SearchingByName(value: string): void {
     this.byName = value;
   }
 
-  SearchingByDescription(value: string) {
+  public SearchingByDescription(value: string): void {
     this.byDescription = value;
   }
 
-  switchSearchOn() {
+  public switchSearchOn(): void {
     this.navORsearch = !this.navORsearch;
   }
 
-  chooseFavorite(id: number) {
+  public chooseFavorite(id: number): void {
     this.addToFavorite.emit(id);
   }
 }

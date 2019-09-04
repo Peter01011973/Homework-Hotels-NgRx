@@ -143,18 +143,21 @@ span.cloud {
 }
 /* changed */
 .element-left {
+  display: flex;
   float: left;
-  width:40%;
+  width:30%;
+
 }
 .element-right {
-   width: 25%;
+   width: 18%;
 }
 
 .element-favorite {
-  float: right;
-  width: 25%;
+  /* float: right; */
+  /* width: 25%; */
   background: wheat;
-  border: solid 2px wheat;
+  border: 2px solid wheat;
+  border-radius: 5px;
 }
 
 .temperatur h5 {
@@ -291,9 +294,10 @@ i.text-info{
   font-family: 'Roboto', sans-serif;
 }
 .copy-right {
-
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   text-align: center;
-  padding:0em 0em 2em 0em;
 }
 .copy-right p {
   font-size: 1em;

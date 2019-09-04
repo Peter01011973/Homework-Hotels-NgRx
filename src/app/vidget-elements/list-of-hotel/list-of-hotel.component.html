@@ -25,15 +25,15 @@
           </div>
         </div>
         <div id="bottom">
-          <mat-form-field>
+          <mat-form-field class="mff">
             <input matInput placeholder="by name" [value]="byName" #inputByNameRef
               (keyup)="SearchingByName(inputByNameRef.value)">
           </mat-form-field>
-          <mat-form-field>
+          <mat-form-field class="mff">
             <input matInput placeholder="by description" [value]="byDescription" #inputByDescriptionRef
               (keyup)="SearchingByDescription(inputByDescriptionRef.value)">
           </mat-form-field>
-          <mat-form-field>
+          <mat-form-field class="mff">
             <mat-label>by stars</mat-label>
             <mat-select [(value)]="byStars">
               <mat-option *ngFor="let hotel of hotelsStars" [value]="hotel.value">
@@ -48,9 +48,11 @@
       <h3>Righteous indignation & like</h3>
       <div class="activity_box">
         <div class="scrollbar" id="style-2">
-          <div class="activity-row"
-            *ngFor="let hotelInfo of listOfHotels | searchingHotel: byName: byDescription: byStars; let even = even">
-            <mat-card class="example-card" [ngClass]="{evenBorder : even }" (click) = "select(hotelInfo.id)">
+          <div class="activity-row">
+            <mat-card class="example-card" *ngFor="let hotelInfo of listOfHotels | searchingHotel: byName: byDescription: byStars; let even = even"
+              [ngClass]="{evenBorder : even }" 
+              (click) = "select(hotelInfo.id)" 
+              [class.selectedHotel]="hotelInfo === selHotel">
               <mat-card-header>
                 <div mat-card-avatar><img mat-card-avatar [src]='hotelInfo.picture'></div>
                 <mat-card-title>{{hotelInfo.title}}</mat-card-title>
