@@ -14,19 +14,12 @@ export class HotelService {
 
   public constructor(private dialog: MatDialog) { }
 
-  public getHotels(): Hotel[] {
-    return this.listHotels;
+  public changeHotel(selHotel: Hotel) {
+    this.selectedHotel = selHotel;
   }
 
-  public changeHotel(id: number) {
-    this.selectedHotel = this.listHotels[this.listHotels.findIndex(item => item.id === id)];
-    return this.selectedHotel;
-  }
-
-  public deleteHotelFromList(id: number): Hotel[] {
+  public deleteHotelFromList(id: number): void {
     this.dialog.open(DeleteDialogComponent).afterClosed().subscribe(result => 
       { if (result) { this.listHotels=this.listHotels.filter(cur => cur.id != id);}});
-      (this.listHotels) ? this.selectedHotel = this.listHotels[this.listHotels.findIndex(item => item.id === id)-1]:this.selectedHotel = undefined;
-    return this.listHotels;
   }
 }
