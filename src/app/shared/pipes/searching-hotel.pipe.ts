@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Hotel } from 'src/app/shared/interfaces/hotels-list-interface';
+import { Hotel } from 'src/app/shared/interfaces/hotel-interface';
 @Pipe({
   name: 'searchingHotel'
 })

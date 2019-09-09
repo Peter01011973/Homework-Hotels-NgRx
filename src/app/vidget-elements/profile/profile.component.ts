@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Profile } from 'src/app/shared/interfaces/profile-interface';
+import { Component } from '@angular/core';
+import { HotelService } from 'src/app/shared/services/hotel.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,5 +8,5 @@ import { Profile } from 'src/app/shared/interfaces/profile-interface';
 })
 
 export class ProfileComponent {
-  @Input() public profileInfo: Profile;
+  public constructor(private hotelService: HotelService) { }
 }

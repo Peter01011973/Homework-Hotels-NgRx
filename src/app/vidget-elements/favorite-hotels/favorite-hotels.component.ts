@@ -1,5 +1,5 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
-import { Hotel } from 'src/app/shared/interfaces/hotels-list-interface';
+import { Component } from '@angular/core';
+import { FavoritHotelsService } from 'src/app/shared/services/favorit-hotels.service';
 
 @Component({
   selector: 'app-favorite-hotels',
@@ -7,15 +7,6 @@ import { Hotel } from 'src/app/shared/interfaces/hotels-list-interface';
   styleUrls: ['./favorite-hotels.component.css']
 })
 export class FavoriteHotelsComponent {
-  @Input() public favoriteHotels: Hotel[];
-  @Output() public deleteFavHotel: EventEmitter<number> = new EventEmitter();
-  public selectedFavHotel: Hotel;
 
-  deleteFavorite(id: number) {
-    this.deleteFavHotel.emit(id);
-  }
-
-  select(selHotel: Hotel) {
-    this.selectedFavHotel = selHotel;
-  }
+  public constructor(private favoriteHotelsService: FavoritHotelsService) { }  
 }

@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Weather } from 'src/app/shared/interfaces/weather-interface';
+import { Component } from '@angular/core';
+import { HotelService } from 'src/app/shared/services/hotel.service';
 
 @Component({
   selector: 'app-weather',
@@ -8,5 +8,5 @@ import { Weather } from 'src/app/shared/interfaces/weather-interface';
 })
 
 export class WeatherComponent {
-  @Input() public weatherInfo: Weather;
+  public constructor(private hotelService: HotelService) { }
 }

@@ -1,10 +1,10 @@
 
-  <div class="element-bg-img"><img [src]="picture" alt="" class="img-responsive"> </div>
+  <div class="element-bg-img"><img [src]="hotelService.selectedHotel.picture" alt="" class="img-responsive"> </div>
   <div class="element-left-bottom">
     <div *ngIf="navORsearch else searching" class="ele-strip">
       <ul>
         <li>
-          <button class="searchBtn" mat-icon-button (click)="switchSearchOn()">
+          <button class="searchBtn" mat-icon-button (click)="switchSearchOnOff()">
             <i class="material-icons">search</i>
           </button>
         </li>
@@ -19,7 +19,7 @@
         <div id="top">
           <legend id="leg">Searching hotels</legend>
           <div>
-            <button mat-icon-button (click)="searchingClose()" class="closeButtn">
+            <button mat-icon-button (click)="switchSearchOnOff()" class="closeButtn">
               <i class="material-icons">close</i>
             </button>
           </div>
@@ -49,10 +49,10 @@
       <div class="activity_box">
         <div class="scrollbar" id="style-2">
           <div class="activity-row">
-            <mat-card class="example-card" #{{hotelInfo.id}} *ngFor="let hotelInfo of listOfHotels | searchingHotel: byName: byDescription: byStars; even as even"
+            <mat-card class="example-card" #{{hotelInfo.id}} *ngFor="let hotelInfo of hotelService.getHotels() | searchingHotel: byName: byDescription: byStars; even as even"
               [ngClass]="{evenBorder : even }" 
-              (click) = "select(hotelInfo.id)" 
-              [class.selectedHotel]="hotelInfo === selHotel">
+              (click) = "hotelService.changeHotel(hotelInfo.id)" 
+              [class.selectedHotel]="hotelInfo === hotelService.selectedHotel">
               <mat-card-header>
                 <div mat-card-avatar><img mat-card-avatar [src]='hotelInfo.picture'></div>
                 <mat-card-title>{{hotelInfo.title}}</mat-card-title>
@@ -62,8 +62,8 @@
                   <p>{{hotelInfo.description}}</p>
               </mat-card-content>
               <mat-card-actions fxLayout="row" fxLayoutAlign="space-around center">
-                <button mat-raised-button color="primary" (click)="delete(hotelInfo.id)">Delete</button>
-                <button mat-raised-button color="primary" (click)="chooseFavorite(hotelInfo.id)">Favorite</button>
+                <button mat-raised-button color="primary" (click)="hotelService.deleteHotelFromList(hotelInfo.id)">Delete</button>
+                <button mat-raised-button color="primary" (click)="favoriteHotelsService.addToFavorite(hotelInfo.id)">Favorite</button>
               </mat-card-actions>
             </mat-card>
           </div>
