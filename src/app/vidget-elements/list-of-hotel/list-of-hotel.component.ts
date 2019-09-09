@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Hotel } from 'src/app/mock-data/hotels-list-interface';
+import { Hotel } from 'src/app/shared/interfaces/hotels-list-interface';
 import { MatDialog} from '@angular/material/dialog';
 import { DeleteDialogComponent } from '../../shared/dialogs/delete-dialog/delete-dialog.component';
-import { HotelStars } from 'src/app/mock-data/stars-interface';
+import { HotelStars } from 'src/app/shared/interfaces/stars-interface';
 import { hotelsStars } from 'src/app/mock-data/hotelStars';
 import { Subscription } from 'rxjs';
 
@@ -41,15 +41,15 @@ export class ListOfHotelComponent {
     this.dialog.open(DeleteDialogComponent).afterClosed().subscribe(result => { if (result) { this.deleteHotel.emit(id); } });
   }
 
-  public SearchingClose(): void {
+  public searchingClose(): void {
     this.navORsearch = !this.navORsearch;
   }
 
-  public SearchingByName(value: string): void {
+  public searchingByName(value: string): void {
     this.byName = value;
   }
 
-  public SearchingByDescription(value: string): void {
+  public searchingByDescription(value: string): void {
     this.byDescription = value;
   }
 

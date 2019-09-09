@@ -1,5 +1,5 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
-import { Hotel } from 'src/app/mock-data/hotels-list-interface';
+import { Hotel } from 'src/app/shared/interfaces/hotels-list-interface';
 
 @Component({
   selector: 'app-favorite-hotels',
@@ -16,7 +16,6 @@ export class FavoriteHotelsComponent {
   }
 
   select(selHotel: Hotel) {
-    console.log(selHotel.title);
     this.selectedFavHotel = selHotel;
   }
 }

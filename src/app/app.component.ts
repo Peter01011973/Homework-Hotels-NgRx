@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { hotels } from 'src/app/mock-data/hotels-list';
-import { Hotel } from 'src/app/mock-data/hotels-list-interface';
 import { MatDialog} from '@angular/material/dialog';
 import { WarningNotAddComponent } from './shared/dialogs/warning-not-add/warning-not-add.component';
+import { hotels } from './mock-data/hotels-list';
+import { Hotel } from './shared/interfaces/hotels-list-interface';
 
 
 @Component({

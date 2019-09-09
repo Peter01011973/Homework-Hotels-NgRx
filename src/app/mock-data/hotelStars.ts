@@ -1,4 +1,4 @@
-import { HotelStars } from './stars-interface';
+import { HotelStars } from '../shared/interfaces/stars-interface';
 
 export const hotelsStars: HotelStars[] = [
     { value: 0, viewValue: 'all hotels' },

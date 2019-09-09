@@ -1,4 +1,4 @@
-import { Hotel } from './hotels-list-interface';
+import { Hotel } from '../shared/interfaces/hotels-list-interface';
 
 export const hotels: Hotel[] = [
     {

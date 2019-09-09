@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Profile } from 'src/app/mock-data/profile-interface';
+import { Profile } from 'src/app/shared/interfaces/profile-interface';
 
 @Component({
   selector: 'app-profile',

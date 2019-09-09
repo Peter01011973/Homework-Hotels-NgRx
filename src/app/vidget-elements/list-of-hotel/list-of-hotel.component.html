@@ -19,7 +19,7 @@
         <div id="top">
           <legend id="leg">Searching hotels</legend>
           <div>
-            <button mat-icon-button (click)="SearchingClose()" class="closeButtn">
+            <button mat-icon-button (click)="searchingClose()" class="closeButtn">
               <i class="material-icons">close</i>
             </button>
           </div>
@@ -27,11 +27,11 @@
         <div id="bottom">
           <mat-form-field class="mff">
             <input matInput placeholder="by name" [value]="byName" #inputByNameRef
-              (keyup)="SearchingByName(inputByNameRef.value)">
+              (keyup)="searchingByName(inputByNameRef.value)">
           </mat-form-field>
           <mat-form-field class="mff">
             <input matInput placeholder="by description" [value]="byDescription" #inputByDescriptionRef
-              (keyup)="SearchingByDescription(inputByDescriptionRef.value)">
+              (keyup)="searchingByDescription(inputByDescriptionRef.value)">
           </mat-form-field>
           <mat-form-field class="mff">
             <mat-label>by stars</mat-label>
@@ -49,7 +49,7 @@
       <div class="activity_box">
         <div class="scrollbar" id="style-2">
           <div class="activity-row">
-            <mat-card class="example-card" *ngFor="let hotelInfo of listOfHotels | searchingHotel: byName: byDescription: byStars; let even = even"
+            <mat-card class="example-card" #{{hotelInfo.id}} *ngFor="let hotelInfo of listOfHotels | searchingHotel: byName: byDescription: byStars; even as even"
               [ngClass]="{evenBorder : even }" 
               (click) = "select(hotelInfo.id)" 
               [class.selectedHotel]="hotelInfo === selHotel">

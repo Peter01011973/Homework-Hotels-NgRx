@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Weather } from 'src/app/mock-data/weather-interface';
+import { Weather } from 'src/app/shared/interfaces/weather-interface';
 
 @Component({
   selector: 'app-weather',
