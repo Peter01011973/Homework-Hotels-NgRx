@@ -1,17 +1,17 @@
 <h1 [style.color]="'rebeccapurple'" [style.font-weight]="'700'">Favorite hotels</h1>
 <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
 <mat-list>
-    <mat-list-item *ngFor="let hotel of favoriteHotelsService.favoriteHotels; even as even" 
+    <mat-list-item *ngFor="let hotel of (hotelService.favoriteHotels$ | async); even as even" 
         [ngClass]="{evenFavorite : even }" 
-        (click)="favoriteHotelsService.selectFavHotel(hotel)" 
-        [class.selected]="hotel === favoriteHotelsService.selectedFavHotel"
+        (click)="hotelService.selectFavHotel(hotel)" 
+        [class.selected]="hotel === hotelService.selectedFavHotel"
         class="favItem">
         <img matListAvatar [src]='hotel.picture'>
         <h3 matLine> {{hotel.title}} </h3>
         <p matLine>
             <span> {{hotel.address}} </span>
         </p>
-        <button mat-icon-button (click)="favoriteHotelsService.deleteFavoriteHotel(hotel.id)">
+        <button mat-icon-button (click)="hotelService.deleteFavoriteHotel(hotel.id)">
             <i class="material-icons">delete</i>
         </button>
     </mat-list-item>

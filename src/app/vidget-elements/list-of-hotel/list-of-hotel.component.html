@@ -49,7 +49,7 @@
       <div class="activity_box">
         <div class="scrollbar" id="style-2">
           <div class="activity-row">
-            <mat-card class="example-card" #{{hotelInfo.id}} *ngFor="let hotelInfo of hotelService.listHotels | searchingHotel: byName: byDescription: byStars; even as even"
+            <mat-card class="example-card" #{{hotelInfo.id}} *ngFor="let hotelInfo of (hotelService.listHotels$ | async) | searchingHotel: byName: byDescription: byStars; even as even"
               [ngClass]="{evenBorder : even }" 
               (click) = "hotelService.changeHotel(hotelInfo)" 
               [class.selectedHotel]="hotelInfo === hotelService.selectedHotel">
@@ -63,7 +63,7 @@
               </mat-card-content>
               <mat-card-actions fxLayout="row" fxLayoutAlign="space-around center">
                 <button mat-raised-button color="primary" (click)="hotelService.deleteHotelFromList(hotelInfo.id)">Delete</button>
-                <button mat-raised-button color="primary" (click)="favoriteHotelsService.addToFavorite(hotelInfo.id)">Favorite</button>
+                <button mat-raised-button color="primary" (click)="hotelService.addToFavorite(hotelInfo)">Favorite</button>
               </mat-card-actions>
             </mat-card>
           </div>

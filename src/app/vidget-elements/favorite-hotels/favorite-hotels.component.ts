@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FavoritHotelsService } from 'src/app/shared/services/favorit-hotels.service';
+import { HotelService } from 'src/app/shared/services/hotel.service';
 
 @Component({
   selector: 'app-favorite-hotels',
@@ -8,5 +8,5 @@ import { FavoritHotelsService } from 'src/app/shared/services/favorit-hotels.ser
 })
 export class FavoriteHotelsComponent {
 
-  public constructor(private favoriteHotelsService: FavoritHotelsService) { }  
+  public constructor(private hotelService: HotelService) { }  
 }

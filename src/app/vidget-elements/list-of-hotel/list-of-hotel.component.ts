@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { HotelStars } from 'src/app/shared/interfaces/stars-interface';
 import { hotelsStars } from 'src/app/mock-data/hotelStars';
 import { HotelService } from 'src/app/shared/services/hotel.service';
-import { FavoritHotelsService } from 'src/app/shared/services/favorit-hotels.service';
 
 @Component({
   selector: 'app-list-of-hotel',
@@ -16,7 +15,7 @@ export class ListOfHotelComponent {
   public byName: string = '';
   public byDescription: string = '';
   
-  public constructor(private hotelService: HotelService, private favoriteHotelsService: FavoritHotelsService) { }
+   public constructor(private hotelService: HotelService) { }
 
   public searchingByName(value: string): void {
     this.byName = value;
