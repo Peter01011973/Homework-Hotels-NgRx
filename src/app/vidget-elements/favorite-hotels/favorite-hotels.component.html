@@ -1,7 +1,7 @@
 <h1 [style.color]="'rebeccapurple'" [style.font-weight]="'700'">Favorite hotels</h1>
 <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
 <mat-list>
-    <mat-list-item *ngFor="let hotel of (hotelService.favoriteHotels$ | async); even as even" 
+    <mat-list-item *ngFor="let hotel of (favoriteHotels$ | async); even as even" 
         [ngClass]="{evenFavorite : even }" 
         (click)="hotelService.selectFavHotel(hotel)" 
         [class.selected]="hotel === hotelService.selectedFavHotel"
@@ -11,9 +11,15 @@
         <p matLine>
             <span> {{hotel.address}} </span>
         </p>
-        <button mat-icon-button (click)="hotelService.deleteFavoriteHotel(hotel.id)">
+        <button mat-icon-button (click)="deleteFavoriteHotel(hotel.id)">
             <i class="material-icons">delete</i>
         </button>
     </mat-list-item>
 </mat-list>
 </cdk-virtual-scroll-viewport>
+<mat-paginator class="paginator"
+    [length]="100"
+    [pageSize]="3"
+    (page)=changePage($event)
+    [pageSizeOptions]="[3, 5,  10]">
+</mat-paginator>

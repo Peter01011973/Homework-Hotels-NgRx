@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { Hotel } from './shared/interfaces/hotel-interface';
 
 @Component({
   selector: 'app-root',

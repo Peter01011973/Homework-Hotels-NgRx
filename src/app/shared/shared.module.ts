@@ -12,6 +12,9 @@ import { SearchingHotelPipe } from './pipes/searching-hotel.pipe';
 import { MatListModule } from '@angular/material/list';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [SearchingHotelPipe],
@@ -25,7 +28,10 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     MatSelectModule,
     MatListModule,
     FlexLayoutModule,
-    ScrollingModule
+    ScrollingModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule
   ],
   exports: [
     MatButtonModule,
@@ -39,7 +45,10 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     SearchingHotelPipe,
     MatListModule,
     FlexLayoutModule,
-    ScrollingModule
+    ScrollingModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule
   ]
 })
 export class SharedModule { }

@@ -1,6 +1,6 @@
 import { Hotel } from '../shared/interfaces/hotel-interface';
 
-export const hotels: Hotel[] = [
+export const hotelsDb: Hotel[] = [
     {
       id: 0,
       title: 'Universal Cabana',

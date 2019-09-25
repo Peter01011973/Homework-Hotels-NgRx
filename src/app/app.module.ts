@@ -11,6 +11,9 @@ import { SharedModule } from './shared/shared.module';
 import { DeleteDialogComponent } from './shared/dialogs/delete-dialog/delete-dialog.component';
 import { FavoriteHotelsComponent } from './vidget-elements/favorite-hotels/favorite-hotels.component';
 import { WarningNotAddComponent } from './shared/dialogs/warning-not-add/warning-not-add.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthorizationService } from './shared/services/authorization.service';
+import { HotelService } from './shared/services/hotel.service';
 
 
 @NgModule({
@@ -30,9 +33,13 @@ import { WarningNotAddComponent } from './shared/dialogs/warning-not-add/warning
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    HttpClientModule
   ],
   exports: [DeleteDialogComponent, WarningNotAddComponent],
-  providers: [],
+  providers: [
+    HotelService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthorizationService, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
