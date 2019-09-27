@@ -1,8 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HotWeatherVidgetComponent } from './vidget-elements/hot-weather-vidget/hot-weather-vidget.component';
+import { AboutProjectComponent } from './Nav-elements/about-project/about-project.component';
+import { HotelDetailComponent } from './vidget-elements/list-of-hotel/hotel-detail/hotel-detail.component';
+import { CommentsComponent } from './vidget-elements/list-of-hotel/hotel-detail/comments/comments.component';
+import { ContactsComponent } from './vidget-elements/list-of-hotel/hotel-detail/contacts/contacts.component';
+import { AuthGuard } from './guards/auth.guard';
+import { UsersComponent } from './Nav-elements/users/users.component';
+import { PageNotFoundComponent } from './Nav-elements/page-not-found/page-not-found.component';
 
-const routes: Routes = [];
-
+const routes: Routes = [
+  {path: '', component: HotWeatherVidgetComponent},
+  {path: 'hotels', component: HotWeatherVidgetComponent},
+  {path: 'about', component: AboutProjectComponent},
+  {path: 'hotels/:id', component: HotelDetailComponent, children: [
+    {path: 'comments', component: CommentsComponent},
+    {path: 'contacts', component: ContactsComponent},
+  ]},
+  {path: 'contact', loadChildren: './Nav-elements/contact-us/contact.module#ContactModule'},
+  {path: 'users', loadChildren: './Nav-elements/users/users.module#UsersModule'},
+  {path: '**', component: PageNotFoundComponent},
+]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
