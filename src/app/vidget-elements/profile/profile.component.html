@@ -1,15 +1,15 @@
-<div class="profile-card">
+<div class="profile-card" *ngIf="hotelsNgRx$ | async as hotelsNgRx">
     <div class="profile-info">
         <h4>Nam libero voluptatem</h4>
         <span class="w-line"> </span>
-         <img src='{{hotelService.selectedHotel?.profile.photo}}' alt=""  class="img-responsive">
+         <img src='{{hotelsNgRx.selectedHotel?.profile.photo}}' alt=""  class="img-responsive">
     </div>
     <div class="teddy-follow">
         <ul>
-            <li class="folw-h"><h4>{{hotelService.selectedHotel?.profile.followers}}</h4>
+            <li class="folw-h"><h4>{{hotelsNgRx.selectedHotel?.profile.followers}}</h4>
                 <p>follower</p>
             </li>
-            <li><h4>{{hotelService.selectedHotel?.profile.following}}</h4>
+            <li><h4>{{hotelsNgRx.selectedHotel?.profile.following}}</h4>
                 <p>following</p>
             </li>
         </ul>

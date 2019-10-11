@@ -1,0 +1,22 @@
+<div class="card-container" *ngIf="hotel$ | async as hotel; else loading">
+    <ng-template #loading>
+        <div>Loading...</div>
+    </ng-template>
+    <mat-card class="example-card">
+        <h2><strong>{{hotel.title}}</strong></h2>
+        <h3>{{(hotel$ | async)?.address}}</h3>
+        <img mat-card-image src={{hotel.picture}} alt="Photo of a Shiba Inu">
+        <mat-card-content>
+            <p>{{(hotel$ | async)?.description}}
+            </p>
+        </mat-card-content>
+        <mat-card-content>
+            <router-outlet></router-outlet>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button routerLink='comments'>Comments</button>
+            <button mat-button routerLink='contacts'>Contacts</button>
+        </mat-card-actions>
+    </mat-card>
+
+</div>

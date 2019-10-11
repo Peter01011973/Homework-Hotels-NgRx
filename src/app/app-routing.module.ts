@@ -10,17 +10,18 @@ import { UsersComponent } from './Nav-elements/users/users.component';
 import { PageNotFoundComponent } from './Nav-elements/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  {path: '', component: HotWeatherVidgetComponent},
+  {path: '', redirectTo: '/hotels', pathMatch: 'full'},
   {path: 'hotels', component: HotWeatherVidgetComponent},
   {path: 'about', component: AboutProjectComponent},
   {path: 'hotels/:id', component: HotelDetailComponent, children: [
     {path: 'comments', component: CommentsComponent},
     {path: 'contacts', component: ContactsComponent},
   ]},
-  {path: 'contact', loadChildren: './Nav-elements/contact-us/contact.module#ContactModule'},
+  {path: 'contact', loadChildren: () => import('./Nav-elements/contact-us/contact.module').then(mod => mod.ContactModule)},
   {path: 'users', loadChildren: './Nav-elements/users/users.module#UsersModule'},
   {path: '**', component: PageNotFoundComponent},
 ]
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

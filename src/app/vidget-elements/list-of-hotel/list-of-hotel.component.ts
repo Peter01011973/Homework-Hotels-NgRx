@@ -1,11 +1,13 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HotelStars } from 'src/app/shared/interfaces/stars-interface';
 import { hotelsStars } from 'src/app/mock-data/hotelStars';
 import { HotelService } from 'src/app/shared/services/hotel.service';
-import { Observable, of, from } from 'rxjs';
-import { Hotel } from 'src/app/shared/interfaces/hotel-interface';
-import { tap } from 'rxjs/operators';
-import { tick } from '@angular/core/testing';
+import { Observable } from 'rxjs';
+import { Hotel, Hotels } from 'src/app/shared/interfaces/hotel-interface';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/redux/app.state';
+import { ChangeSelectedHotel } from 'src/app/redux/hotels.actions';
 
 @Component({
   selector: 'app-list-of-hotel',
@@ -20,12 +22,13 @@ export class ListOfHotelComponent implements OnInit {
   public byDescription: string = '';
   public byStars: number = 0;
   public hotels$: Observable<Hotel[]>;
+  public hotelsNgRx$: Observable<Hotels>;
+      
+  public constructor(private hotelService: HotelService, public _router: Router, private store: Store<AppState>) { }
   
-  public constructor(private hotelService: HotelService) { }
-
   public ngOnInit() {
-    this.hotels$=this.hotelService.getHotels(this.byStars).pipe(tap(hotels => this.hotelService.selectedHotel=hotels[0]))
-
+    this.hotelService.getHotels(this.byStars);
+    this.hotelsNgRx$ = this.store.select('hotelspage');
   }
 
   public searchingByName(value: string): void {
@@ -37,23 +40,24 @@ export class ListOfHotelComponent implements OnInit {
   public switchSearchOnOff(): void {
     this.navORsearch = !this.navORsearch;
   }
+
+  public hotelDetail(selHotel: Hotel):void {
+    this._router.navigate(['hotels',selHotel.id]);
+  }
   
-  public changeHotel(selHotel: Hotel) {
-    this.hotelService.selectedHotel = selHotel;
+  public changeHotel(selHotel: Hotel): void {
+    this.store.dispatch(ChangeSelectedHotel(selHotel));
   }
 
-  public deleteHotelFromList(id: number): void {
-    this.hotelService.deleteHotelFromList(id).subscribe(()=>console.log('Deleted!'));
-    this.hotels$ = this.hotelService.getHotels(this.byStars);
+  public deleteHotelFromList(hotel: Hotel): void {
+    this.hotelService.deleteHotelFromList(hotel).subscribe(()=>console.log('Deleted!'));
   }
 
-  public addHotelToFavorite(hotel: Hotel):void {
-    this.hotelService.addToFavorite(hotel).subscribe((data: Hotel) => {
-          console.log('success created', data);
-        });
+  public addHotelToFav(hotel: Hotel):void {
+    this.hotelService.addFavoriteHotelEvent$$.next(hotel);;
   }
 
   public changeStars() {
-    this.hotels$ = this.hotelService.getHotels(this.byStars);
+    this.hotelService.getHotels(this.byStars);
   }
 }

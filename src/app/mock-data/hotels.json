@@ -1,52 +1,6 @@
 {
   "hotels": [
     {
-      "id": 0,
-      "title": "Universal Cabana",
-      "address": "Orlando",
-      "description": "Best one!",
-      "phone": "+3242353434",
-      "picture": "assets/images/1.jpg",
-      "photos": [
-        "assets/images/res.jpg",
-        "assets/images/r1.jpg"
-      ],
-      "weather": {
-        "temperature": 12,
-        "wind": 11,
-        "icon": "sun"
-      },
-      "profile": {
-        "followers": 112,
-        "following": 11,
-        "photo": "assets/images/b1.jpg"
-      },
-      "stars": 3
-    },
-    {
-      "id": 1,
-      "title": "Kharkov plaza",
-      "address": "Kharkov",
-      "description": "Five Stars",
-      "phone": "+3242353434",
-      "picture": "assets/images/2.jpg",
-      "photos": [
-        "assets/images/res.jpg",
-        "assets/images/r1.jpg"
-      ],
-      "weather": {
-        "temperature": 5,
-        "wind": 4,
-        "icon": "rain"
-      },
-      "profile": {
-        "followers": 12,
-        "following": 111,
-        "photo": "assets/images/b2.jpg"
-      },
-      "stars": 4
-    },
-    {
       "id": 2,
       "title": "Hotel name",
       "address": "Orlando",
@@ -68,52 +22,6 @@
         "photo": "assets/images/b3.jpg"
       },
       "stars": 5
-    },
-    {
-      "id": 3,
-      "title": "Romance al Colosseo",
-      "address": "Via del Monte Oppio 12 int. 7, Rome",
-      "description": "Right in the centre of Rome.",
-      "phone": "+3242353777",
-      "picture": "assets/images/4.jpg",
-      "photos": [
-        "assets/images/res.jpg",
-        "assets/images/r1.jpg"
-      ],
-      "weather": {
-        "temperature": 21,
-        "wind": 23,
-        "icon": "cloud"
-      },
-      "profile": {
-        "followers": 77,
-        "following": 33,
-        "photo": "assets/images/b4.jpg"
-      },
-      "stars": 5
-    },
-    {
-      "id": 4,
-      "title": "Favor Park Hotel",
-      "address": "Vulytsya Marshala Konyeva 6, Kiev",
-      "description": "Favor Park Hotel is located in Kiev, 3.2 km from Expocentre of Ukraine.",
-      "phone": "+380442353777",
-      "picture": "assets/images/5.jpg",
-      "photos": [
-        "assets/images/res.jpg",
-        "assets/images/r1.jpg"
-      ],
-      "weather": {
-        "temperature": 15,
-        "wind": 16,
-        "icon": "cloud"
-      },
-      "profile": {
-        "followers": 21,
-        "following": 33,
-        "photo": "assets/images/b5.jpg"
-      },
-      "stars": 4
     },
     {
       "id": 5,
@@ -348,27 +256,27 @@
   ],
   "favoriteHotels": [
     {
-      "id": 1,
-      "title": "Universal Cabana",
-      "address": "Orlando",
-      "description": "Best one!",
-      "phone": "+3242353434",
-      "picture": "assets/images/1.jpg",
+      "id": 13,
+      "title": "VIP Rooms",
+      "address": "Ulica Ante Starčevića 7, Split",
+      "description": "Featuring free WiFi throughout the property, Vip Rooms offers accommodation in Split, 600 metres from Diocletian's Palace.",
+      "phone": "+750442157329",
+      "picture": "assets/images/14.jpg",
       "photos": [
         "assets/images/res.jpg",
         "assets/images/r1.jpg"
       ],
       "weather": {
-        "temperature": 12,
-        "wind": 11,
-        "icon": "sun"
+        "temperature": 30,
+        "wind": 30,
+        "icon": "cloud"
       },
       "profile": {
-        "followers": 112,
-        "following": 11,
-        "photo": "assets/images/b1.jpg"
+        "followers": 2399,
+        "following": 244,
+        "photo": "assets/images/b14.jpg"
       },
-      "stars": 3
+      "stars": 5
     },
     {
       "id": 2,
@@ -392,6 +300,52 @@
         "photo": "assets/images/b3.jpg"
       },
       "stars": 5
+    },
+    {
+      "id": 8,
+      "title": "Paris Center",
+      "address": "13 rue Jean Beausire, Paris",
+      "description": "Set within the 4th arr. District in Paris.",
+      "phone": "+650442357778",
+      "picture": "assets/images/9.jpg",
+      "photos": [
+        "assets/images/res.jpg",
+        "assets/images/r1.jpg"
+      ],
+      "weather": {
+        "temperature": 12,
+        "wind": 13,
+        "icon": "cloud"
+      },
+      "profile": {
+        "followers": 91,
+        "following": 44,
+        "photo": "assets/images/b9.jpg"
+      },
+      "stars": 3
+    },
+    {
+      "id": 10,
+      "title": "Charles Apartments",
+      "address": "Amstelveld 17, Amsterdam",
+      "description": "Charles Apartments is a self-catering accommodation located in Amsterdam.",
+      "phone": "+360442357778",
+      "picture": "assets/images/11.jpg",
+      "photos": [
+        "assets/images/res.jpg",
+        "assets/images/r1.jpg"
+      ],
+      "weather": {
+        "temperature": 20,
+        "wind": 20,
+        "icon": "cloud"
+      },
+      "profile": {
+        "followers": 291,
+        "following": 544,
+        "photo": "assets/images/b11.jpg"
+      },
+      "stars": 3
     },
     {
       "id": 5,

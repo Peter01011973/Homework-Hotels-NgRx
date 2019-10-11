@@ -1,7 +1,7 @@
-<div class="temperatur">
+<div class="temperatur" *ngIf="hotelsNgRx$ | async as hotelsNgRx">
     <h5>Et harum quidem</h5>
     <span class="w-line"> </span>
     <span class="cloud"> </span>
-    <h2>{{hotelService.selectedHotel?.weather.temperature}}<sup class="degree">°</sup></h2>
-    <h6>Water {{hotelService.selectedHotel?.weather.wind}}<sup class="degree">°</sup></h6>
+    <h2>{{hotelsNgRx.selectedHotel?.weather.temperature}}<sup class="degree">°</sup></h2>
+    <h6>Water {{hotelsNgRx.selectedHotel?.weather.wind}}<sup class="degree">°</sup></h6>
 </div>

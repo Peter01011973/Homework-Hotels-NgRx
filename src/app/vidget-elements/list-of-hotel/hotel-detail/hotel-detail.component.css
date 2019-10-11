@@ -1,0 +1,17 @@
+.card-container {
+    margin-top: 5%;
+}
+
+.example-card {
+    max-width: 35%;
+    display: block;
+    margin: 0 auto; 
+    text-align: center;
+}
+.example-card h3{
+    margin: 3%;
+}
+.example-card h2{
+    font-size: 1.8rem;
+    font-weight: 700;
+}

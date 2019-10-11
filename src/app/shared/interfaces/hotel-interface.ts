@@ -14,3 +14,11 @@ export interface Hotel {
     profile: Profile;
     stars: number;
 }
+
+export interface Hotels {
+    hotels: Hotel[]
+}
+
+export interface FavoriteHotels {
+    favoriteHotels: Hotel[]
+}
