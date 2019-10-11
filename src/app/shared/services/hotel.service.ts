@@ -1,79 +1,115 @@
-import { Injectable } from '@angular/core';
-// import { hotelsDb } from 'src/app/mock-data/hotels-list';
-// import { saveAs } from 'file-saver';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Hotel } from '../interfaces/hotel-interface';
 import { MatDialog } from '@angular/material/dialog';
-import { Observable, of, Unsubscribable } from 'rxjs';
-import { map, tap, catchError, isEmpty } from 'rxjs/operators';
+import { Observable, of, Unsubscribable, Subject, EMPTY, Subscription } from 'rxjs';
+import { map, tap, catchError } from 'rxjs/operators';
 import { WarningNotAddComponent } from '../dialogs/warning-not-add/warning-not-add.component';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { PageEvent } from '@angular/material/paginator';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/redux/app.state';
+import { LoadHotels, DeleteHotel, LoadFavHotels, DeleteFavHotel, AddFavHotel } from 'src/app/redux/hotels.actions';
 
-@Injectable(
-  // {
-  // providedIn: 'root'
-  // }
-)
-export class HotelService {
-  public selectedFavHotel: Hotel;
-  public selectedHotel: Hotel;
- 
+@Injectable()
+export class HotelService implements OnDestroy{
+  public addFavoriteHotelEvent$$ = new Subject<Hotel>(); 
+  public lengthFan$$ = new Subject<number>();
+  public subGetFavHotels: Subscription;
+  public subscriptionGetFavHotels: Subscription;
+  public subscriptionAddToFavorite: Subscription;
 
-  public constructor(private dialog: MatDialog, private http: HttpClient, private _snackBar: MatSnackBar)  {
+  public constructor(
+    private http: HttpClient, 
+    private _snackBar: MatSnackBar,
+    private store: Store<AppState>,
+    public dialog: MatDialog
+  )  {}
+
+  public getHotel(id:number): Observable<Hotel> {
+    return this.http.get<Hotel>(`${environment.api}/hotels/${id}`)
   }
 
-  public getHotels(stars:number): Observable<Hotel[]> {
+  public getHotels(stars:number): void {
     const param:string = (stars)?`?stars=${stars}`:``;
-    return this.http.get<Hotel[]>(`${environment.api}/hotels/${param}`)
+    this.subscriptionGetFavHotels = this.http.get<Hotel[]>(`${environment.api}/hotels/${param}`)
     .pipe(
       catchError(() => {
         this._snackBar.open('Server is unvalible now');
         console.log('error');
         return of([]);
       })
-    );
+    ).subscribe(hotels => this.store.dispatch(LoadHotels(hotels)));
   }
 
-  public getFavHotels(params: Partial<PageEvent>): Observable<Hotel[]> {
+  public getFavHotels(params: Partial<PageEvent>): void {
+    let subscription: Subscription;
+
     const httpParams: HttpParams = new HttpParams({
       fromObject: {
         _page: String(params.pageIndex),
         _limit: String(params.pageSize)
       }
     });
+    this.subGetFavHotels = this.http.get<Hotel[]>(`${environment.api}/favoriteHotels`).subscribe(hots => {this.lengthFan$$.next(hots.length)});
 
-    return this.http.get<Hotel[]>(`${environment.api}/favoriteHotels/`,{params: httpParams})
+    this.http.get<Hotel[]>(`${environment.api}/favoriteHotels/`,{params: httpParams})
     .pipe(
       catchError(() => {
         this._snackBar.open('Server is unvalible now');
         console.log('error');
         return of([]);
       })
+    ).subscribe(FavHotels => {console.log('Fan length: ',FavHotels.length);
+      this.store.dispatch(LoadFavHotels(FavHotels));
+    });   
+  }
+
+  public deleteHotelFromList(hotel: Hotel): Observable<Hotel> {
+    
+    return this.http.delete<Hotel>(`${environment.api}/hotels/${hotel.id}`)
+    .pipe(
+      catchError(() => {
+        this._snackBar.open("Can't added");
+        console.log('error');
+        return of<Hotel>(null);
+      }),
+      tap(() => this.store.dispatch(DeleteHotel(hotel)))
     );
   }
 
-  public deleteHotelFromList(id: number):Observable<Hotel> {
-    return this.http.delete<Hotel>(`${environment.api}/hotels/${id}`)
-  }
+  public addToFavorite(favHot: Hotel): void {
+    let add: boolean = true;
+    this.subscriptionAddToFavorite = this.http.post(`${environment.api}/favoriteHotels`,favHot)
+    .pipe(
 
-  public addToFavorite(favHot: Hotel) {
-    // this.http.get(`${environment.api}/favoriteHotels/?title=${favHot.title}`).subscribe();
-    return this.http.post(`${environment.api}/favoriteHotels`,favHot);
+      catchError(() => {
+        this.dialog.open(WarningNotAddComponent).afterClosed().subscribe();
+        console.log('error');
+        add= false;
+        return of([]);
+      }),
+      
+    ).subscribe(()=> {if (add) {
+      this.store.dispatch(AddFavHotel(favHot))}
+    });
     
   }
 
-  public deleteFavorite(id: number):Observable<Hotel> {
+  public deleteFavorite(hotel: Hotel):Observable<Hotel> {
     const token:string  = localStorage.getItem('token');
     // 'Authorization=Be'
     const headers: HttpHeaders = new HttpHeaders( {
       'Authorization': `Bearer ${token}`
     });
-    return this.http.delete<Hotel>(`${environment.api}/favoriteHotels/${id}`,{headers});
+    this.store.dispatch(DeleteFavHotel(hotel));
+    return this.http.delete<Hotel>(`${environment.api}/favoriteHotels/${hotel.id}`,{headers});
   }
 
-  public selectFavHotel(selHotel: Hotel) {
-    this.selectedFavHotel = selHotel;
+  public ngOnDestroy(): void {
+    this.subGetFavHotels.unsubscribe();
+    this.subscriptionGetFavHotels.unsubscribe();
+    this.subscriptionAddToFavorite.unsubscribe();
   }
 }
