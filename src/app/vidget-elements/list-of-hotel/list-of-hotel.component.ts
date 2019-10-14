@@ -54,6 +54,7 @@ export class ListOfHotelComponent implements OnInit {
   }
 
   public addHotelToFav(hotel: Hotel):void {
+    
     this.hotelService.addFavoriteHotelEvent$$.next(hotel);;
   }
 

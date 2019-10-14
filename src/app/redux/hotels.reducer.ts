@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { LoadHotels, ChangeSelectedHotel, DeleteHotel, LoadFavHotels, DeleteFavHotel, AddFavHotel, ChangeSelectedFavHotel } from './hotels.actions';
 
-const initialState = {hotels: [], favoriteHotels: []}
+const initialState = {hotels: [], favoriteHotels: [], isPressedAddFavHotel: false}
 
 export const HotelsReducer = createReducer(initialState,
     on(AddFavHotel, (state, action) => ({
@@ -9,8 +9,6 @@ export const HotelsReducer = createReducer(initialState,
         favoriteHotels: [...state.favoriteHotels,action.payload], 
         lengthFavHotels: state.favoriteHotels.length
     })),
-    // on(DeleteCar, (state, action) => ({...state, cars: state.cars.filter(car => car !== action.payload)})),
-    // on(BuyCar, (state, action) => { return state }),
     on(LoadHotels, (state, action) => ({
         ...state, 
         hotels: action.payload, 

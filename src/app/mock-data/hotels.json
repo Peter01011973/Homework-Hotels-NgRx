@@ -279,52 +279,6 @@
       "stars": 5
     },
     {
-      "id": 2,
-      "title": "Hotel name",
-      "address": "Orlando",
-      "description": "Lorem ipson0",
-      "phone": "+3242353434",
-      "picture": "assets/images/3.jpg",
-      "photos": [
-        "assets/images/res.jpg",
-        "assets/images/r1.jpg"
-      ],
-      "weather": {
-        "temperature": -2,
-        "wind": 2,
-        "icon": "cloud"
-      },
-      "profile": {
-        "followers": 45,
-        "following": 78,
-        "photo": "assets/images/b3.jpg"
-      },
-      "stars": 5
-    },
-    {
-      "id": 8,
-      "title": "Paris Center",
-      "address": "13 rue Jean Beausire, Paris",
-      "description": "Set within the 4th arr. District in Paris.",
-      "phone": "+650442357778",
-      "picture": "assets/images/9.jpg",
-      "photos": [
-        "assets/images/res.jpg",
-        "assets/images/r1.jpg"
-      ],
-      "weather": {
-        "temperature": 12,
-        "wind": 13,
-        "icon": "cloud"
-      },
-      "profile": {
-        "followers": 91,
-        "following": 44,
-        "photo": "assets/images/b9.jpg"
-      },
-      "stars": 3
-    },
-    {
       "id": 10,
       "title": "Charles Apartments",
       "address": "Amstelveld 17, Amsterdam",
@@ -369,6 +323,121 @@
         "photo": "assets/images/b6.jpg"
       },
       "stars": 4
+    },
+    {
+      "id": 2,
+      "title": "Hotel name",
+      "address": "Orlando",
+      "description": "Lorem ipson0",
+      "phone": "+3242353434",
+      "picture": "assets/images/3.jpg",
+      "photos": [
+        "assets/images/res.jpg",
+        "assets/images/r1.jpg"
+      ],
+      "weather": {
+        "temperature": -2,
+        "wind": 2,
+        "icon": "cloud"
+      },
+      "profile": {
+        "followers": 45,
+        "following": 78,
+        "photo": "assets/images/b3.jpg"
+      },
+      "stars": 5
+    },
+    {
+      "id": 6,
+      "title": "Premier Hotel Lybid",
+      "address": "Peremogy square 1, Kiev",
+      "description": "Lybid Hotel offers in the heart of Kiev city centre.",
+      "phone": "+380442357778",
+      "picture": "assets/images/7.jpg",
+      "photos": [
+        "assets/images/res.jpg",
+        "assets/images/r1.jpg"
+      ],
+      "weather": {
+        "temperature": 15,
+        "wind": 16,
+        "icon": "cloud"
+      },
+      "profile": {
+        "followers": 21,
+        "following": 33,
+        "photo": "assets/images/b7.jpg"
+      },
+      "stars": 3
+    },
+    {
+      "id": 7,
+      "title": "Staro Hotel",
+      "address": "Konstantynivska Street 34-b, Kiev",
+      "description": "Free Wi-Fi and breakfast are offered.",
+      "phone": "+380442357778",
+      "picture": "assets/images/8.jpg",
+      "photos": [
+        "assets/images/res.jpg",
+        "assets/images/r1.jpg"
+      ],
+      "weather": {
+        "temperature": 15,
+        "wind": 16,
+        "icon": "cloud"
+      },
+      "profile": {
+        "followers": 21,
+        "following": 33,
+        "photo": "assets/images/b8.jpg"
+      },
+      "stars": 4
+    },
+    {
+      "id": 8,
+      "title": "Paris Center",
+      "address": "13 rue Jean Beausire, Paris",
+      "description": "Set within the 4th arr. District in Paris.",
+      "phone": "+650442357778",
+      "picture": "assets/images/9.jpg",
+      "photos": [
+        "assets/images/res.jpg",
+        "assets/images/r1.jpg"
+      ],
+      "weather": {
+        "temperature": 12,
+        "wind": 13,
+        "icon": "cloud"
+      },
+      "profile": {
+        "followers": 91,
+        "following": 44,
+        "photo": "assets/images/b9.jpg"
+      },
+      "stars": 3
+    },
+    {
+      "id": 9,
+      "title": "Sant Martre",
+      "address": "Rua Aprazivel, 28, Santa-Tereza",
+      "description": "Sant' Martre provides boasting a terrace with scenic city and mountain views.",
+      "phone": "+330442357778",
+      "picture": "assets/images/10.jpg",
+      "photos": [
+        "assets/images/res.jpg",
+        "assets/images/r1.jpg"
+      ],
+      "weather": {
+        "temperature": 32,
+        "wind": 33,
+        "icon": "cloud"
+      },
+      "profile": {
+        "followers": 191,
+        "following": 144,
+        "photo": "assets/images/b10.jpg"
+      },
+      "stars": 5
     }
   ]
 }
