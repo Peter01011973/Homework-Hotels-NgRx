@@ -439,5 +439,57 @@
       },
       "stars": 5
     }
+  ],
+  "comments": [
+    {
+      "hotelId": 6,
+      "comment": "comment 1",
+      "id": 1
+    },
+    {
+      "hotelId": 6,
+      "comment": "comment 2",
+      "id": 2
+    },
+    {
+      "hotelId": 6,
+      "comment": "comment 3",
+      "id": 3
+    },
+    {
+      "hotelId": 6,
+      "comment": "dffdfdffdfdfdfdfd",
+      "id": 4
+    },
+    {
+      "hotelId": 5,
+      "comment": "dsddssdddsdd",
+      "id": 5
+    },
+    {
+      "hotelId": 5,
+      "comment": "jkhdkffjkddhjffhdfjkh",
+      "id": 6
+    },
+    {
+      "hotelId": 5,
+      "comment": "djdjhfdjfdjfdjhfdjh",
+      "id": 7
+    },
+    {
+      "hotelId": 6,
+      "comment": "dddddfdffd",
+      "id": 8
+    },
+    {
+      "hotelId": 6,
+      "comment": "The hotel was awesome!!",
+      "id": 9
+    },
+    {
+      "hotelId": 2,
+      "comment": "The service was poor :(",
+      "id": 10
+    }
   ]
 }

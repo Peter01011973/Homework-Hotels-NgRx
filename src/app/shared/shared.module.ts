@@ -16,38 +16,30 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
+const shared = [
+  MatButtonModule,
+  MatDialogModule,
+  MatInputModule,
+  MatIconModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatListModule,
+  FlexLayoutModule,
+  ScrollingModule,
+  MatSnackBarModule,
+  MatProgressSpinnerModule,
+  MatPaginatorModule,
+  MatCardModule
+] 
+
 @NgModule({
   declarations: [SearchingHotelPipe],
   imports: [
     CommonModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatInputModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatListModule,
-    FlexLayoutModule,
-    ScrollingModule,
-    MatSnackBarModule,
-    MatProgressSpinnerModule,
-    MatPaginatorModule
+    shared
   ],
   exports: [
-    MatButtonModule,
-    MatDialogModule,
-    MatCardModule,
-    MatInputModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    SearchingHotelPipe,
-    MatListModule,
-    FlexLayoutModule,
-    ScrollingModule,
-    MatSnackBarModule,
-    MatProgressSpinnerModule,
-    MatPaginatorModule
+    shared
   ]
 })
 export class SharedModule { }

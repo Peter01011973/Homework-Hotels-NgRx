@@ -11,6 +11,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/redux/app.state';
 import { LoadHotels, DeleteHotel, LoadFavHotels, DeleteFavHotel, AddFavHotel } from 'src/app/redux/hotels.actions';
+import { IComment } from '../interfaces/comment';
 
 @Injectable()
 export class HotelService implements OnDestroy{
@@ -105,6 +106,22 @@ export class HotelService implements OnDestroy{
     });
     this.store.dispatch(DeleteFavHotel(hotel));
     return this.http.delete<Hotel>(`${environment.api}/favoriteHotels/${hotel.id}`,{headers});
+  }
+
+  public getCommentById(hotelId: number): Observable<IComment[]> {
+    return this.http.get<IComment[]>(`${environment.api}/hotels/${hotelId}/comments`);
+  }
+
+  public addComment(addObject: IComment) {
+    console.log(addObject);
+    this.http.post(`${environment.api}/comments`,addObject)    
+    .pipe(
+      catchError(() => {
+        console.log('error');
+        return of(null);
+      }),
+      
+    ).subscribe((data)=> console.log(data));
   }
 
   public ngOnDestroy(): void {

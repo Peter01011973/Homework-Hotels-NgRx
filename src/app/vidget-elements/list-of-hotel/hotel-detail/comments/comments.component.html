@@ -1,3 +1,9 @@
 <div class="comments-container">
-    <p>comments works!</p>
+    <!-- <div > -->
+        <p *ngFor="let item of comments$ | async">{{item.comment}}</p>
+    <!-- </div> -->
+    <mat-form-field>
+        <textarea matInput placeholder="Comment" #comment></textarea>
+    </mat-form-field>
+    <button mat-raised-button class="addComment-btn" color="primary" (click)="addComment(comment)">Add comment</button>
 </div>
