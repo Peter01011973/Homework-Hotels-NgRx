@@ -17,9 +17,12 @@ export class CommentsComponent implements OnInit {
   public constructor(private activatedRoute: ActivatedRoute, private hotelService: HotelService) { }
 
   public ngOnInit() {
-
-    this.hotelId = +this.activatedRoute.parent.snapshot.paramMap.get('id');
-    this.comments$ = this.hotelService.getCommentById(this.hotelId);
+    this.activatedRoute.parent.paramMap.subscribe((params: ParamMap)=>{
+      this.hotelId = + params.get('id');
+      this.comments$ = this.hotelService.getCommentById(this.hotelId);      
+    });
+    // this.hotelId = +this.activatedRoute.parent.snapshot.paramMap.get('id');
+    // this.comments$ = this.hotelService.getCommentById(this.hotelId);
 
   }
 

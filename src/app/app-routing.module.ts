@@ -5,8 +5,6 @@ import { AboutProjectComponent } from './Nav-elements/about-project/about-projec
 import { HotelDetailComponent } from './vidget-elements/list-of-hotel/hotel-detail/hotel-detail.component';
 import { CommentsComponent } from './vidget-elements/list-of-hotel/hotel-detail/comments/comments.component';
 import { ContactsComponent } from './vidget-elements/list-of-hotel/hotel-detail/contacts/contacts.component';
-import { AuthGuard } from './guards/auth.guard';
-import { UsersComponent } from './Nav-elements/users/users.component';
 import { PageNotFoundComponent } from './Nav-elements/page-not-found/page-not-found.component';
 
 const routes: Routes = [

@@ -490,6 +490,16 @@
       "hotelId": 2,
       "comment": "The service was poor :(",
       "id": 10
+    },
+    {
+      "hotelId": 7,
+      "comment": "Good hotel. I recommended.",
+      "id": 11
+    },
+    {
+      "hotelId": 5,
+      "comment": "Excellent service!",
+      "id": 12
     }
   ]
 }

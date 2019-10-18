@@ -18,7 +18,7 @@ export class HotelService implements OnDestroy{
   public addFavoriteHotelEvent$$ = new Subject<Hotel>(); 
   public lengthFan$$ = new Subject<number>();
   public subGetFavHotels: Subscription;
-  public subscriptionGetFavHotels: Subscription;
+  public subscriptionGetHotels: Subscription;
   public subscriptionAddToFavorite: Subscription;
 
   public constructor(
@@ -34,18 +34,17 @@ export class HotelService implements OnDestroy{
 
   public getHotels(stars:number): void {
     const param:string = (stars)?`?stars=${stars}`:``;
-    this.subscriptionGetFavHotels = this.http.get<Hotel[]>(`${environment.api}/hotels/${param}`)
+    this.subscriptionGetHotels = this.http.get<Hotel[]>(`${environment.api}/hotels/${param}`)
     .pipe(
       catchError(() => {
-        this._snackBar.open('Server is unvalible now');
-        console.log('error');
+        this._snackBar.open('Server with hotels data is unvalible now');
+        console.log('error getting hotels');
         return of([]);
       })
-    ).subscribe(hotels => this.store.dispatch(LoadHotels(hotels)));
+    ).subscribe(hotels => {console.log(hotels); this.store.dispatch(LoadHotels(hotels))});
   }
 
   public getFavHotels(params: Partial<PageEvent>): void {
-    let subscription: Subscription;
 
     const httpParams: HttpParams = new HttpParams({
       fromObject: {
@@ -53,18 +52,17 @@ export class HotelService implements OnDestroy{
         _limit: String(params.pageSize)
       }
     });
-    this.subGetFavHotels = this.http.get<Hotel[]>(`${environment.api}/favoriteHotels`).subscribe(hots => {this.lengthFan$$.next(hots.length)});
+    this.subGetFavHotels = this.http.get<Hotel[]>(`${environment.api}/favoriteHotels`)
+    .subscribe(hots => this.lengthFan$$.next(hots.length));
 
     this.http.get<Hotel[]>(`${environment.api}/favoriteHotels/`,{params: httpParams})
     .pipe(
       catchError(() => {
-        this._snackBar.open('Server is unvalible now');
+        this._snackBar.open('Server with favorite hotels data is unvalible now');
         console.log('error');
         return of([]);
       })
-    ).subscribe(FavHotels => {console.log('Fan length: ',FavHotels.length);
-      this.store.dispatch(LoadFavHotels(FavHotels));
-    });   
+    ).subscribe(FavHotels => this.store.dispatch(LoadFavHotels(FavHotels)));   
   }
 
   public deleteHotelFromList(hotel: Hotel): Observable<Hotel> {
@@ -126,7 +124,7 @@ export class HotelService implements OnDestroy{
 
   public ngOnDestroy(): void {
     this.subGetFavHotels.unsubscribe();
-    this.subscriptionGetFavHotels.unsubscribe();
+    this.subscriptionGetHotels.unsubscribe();
     this.subscriptionAddToFavorite.unsubscribe();
   }
 }
