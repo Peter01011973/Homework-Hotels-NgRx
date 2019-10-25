@@ -15,6 +15,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { EditComponent } from './dialogs/edit-control/edit.component';
 
 const shared = [
   MatButtonModule,
@@ -33,7 +34,7 @@ const shared = [
 ] 
 
 @NgModule({
-  declarations: [SearchingHotelPipe],
+  declarations: [SearchingHotelPipe, EditComponent],
   imports: [
     CommonModule,
     shared

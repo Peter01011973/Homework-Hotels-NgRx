@@ -1,7 +1,5 @@
 <div class="comments-container">
-    <!-- <div > -->
-        <p *ngFor="let item of comments$ | async">{{item.comment}}</p>
-    <!-- </div> -->
+    <p *ngFor="let item of comments$ | async">{{item.comment}}</p>
     <mat-form-field>
         <textarea matInput placeholder="Comment" #comment></textarea>
     </mat-form-field>

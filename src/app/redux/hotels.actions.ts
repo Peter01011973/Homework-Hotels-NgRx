@@ -1,4 +1,4 @@
-import { createAction } from '@ngrx/store';
+import { createAction, Action } from '@ngrx/store';
 import { Hotel } from '../shared/interfaces/hotel-interface';
 
 export const LoadHotels = createAction('LOAD_HOTELS',(payload: Hotel[]) => ({payload}));

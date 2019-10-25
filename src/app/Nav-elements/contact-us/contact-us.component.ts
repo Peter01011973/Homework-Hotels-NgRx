@@ -8,7 +8,7 @@ import { DeactivateEditService } from 'src/app/shared/services/deactivate-edit.s
 })
 
 export class ContactUsComponent implements OnInit{
-  public editMode = false;
+  // public editMode = false;
   public constructor(private deactivateEditService: DeactivateEditService) {}
 
   public ngOnInit(): void {

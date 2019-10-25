@@ -29,6 +29,7 @@ import { reducers, metaReducers } from './reducers';
 import { HotelsReducer } from './redux/hotels.reducer';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EditComponent } from './shared/dialogs/edit-control/edit.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     ContactsComponent,
     PageNotFoundComponent  
   ],
-  entryComponents: [DeleteDialogComponent, WarningNotAddComponent],
+  entryComponents: [DeleteDialogComponent, WarningNotAddComponent, EditComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

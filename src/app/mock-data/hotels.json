@@ -500,6 +500,52 @@
       "hotelId": 5,
       "comment": "Excellent service!",
       "id": 12
+    },
+    {
+      "hotelId": 5,
+      "comment": "Good restaurant!",
+      "id": 13
+    },
+    {
+      "hotelId": 5,
+      "comment": "Good restaurant!",
+      "id": 14
+    },
+    {
+      "hotelId": 6,
+      "comment": "The best accommodation!",
+      "id": 15
+    },
+    {
+      "hotelId": 9,
+      "comment": "Good seaside!",
+      "id": 16
+    },
+    {
+      "comment": "The best hotel all over the world!",
+      "id": 17
+    },
+    {
+      "comment": "The best hotel all over the world!",
+      "id": 18
+    },
+    {
+      "comment": "The best!",
+      "id": 19
+    },
+    {
+      "comment": "The best!",
+      "id": 20
+    },
+    {
+      "hotelId": 2,
+      "comment": "The best!",
+      "id": 21
+    },
+    {
+      "hotelId": 2,
+      "comment": "The cool!",
+      "id": 22
     }
   ]
 }
