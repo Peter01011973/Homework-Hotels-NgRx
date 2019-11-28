@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { ListOfHotelComponent } from './vidget-elements/list-of-hotel/list-of-hotel.component';
 import { WeatherComponent } from './vidget-elements/weather/weather.component';
 import { ProfileComponent } from './vidget-elements/profile/profile.component';
-import { FooterComponent } from './vidget-elements/footer/footer.component';
 import { SharedModule } from './shared/shared.module';
 import { DeleteDialogComponent } from './shared/dialogs/delete-dialog/delete-dialog.component';
 import { FavoriteHotelsComponent } from './vidget-elements/favorite-hotels/favorite-hotels.component';
@@ -37,7 +36,6 @@ import { EditComponent } from './shared/dialogs/edit-control/edit.component';
     ListOfHotelComponent,
     WeatherComponent,
     ProfileComponent,
-    FooterComponent,
     DeleteDialogComponent,
     FavoriteHotelsComponent,
     WarningNotAddComponent,
@@ -56,15 +54,15 @@ import { EditComponent } from './shared/dialogs/edit-control/edit.component';
     SharedModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({hotelspage: HotelsReducer}),
+    // StoreModule.forRoot({hotelspage: HotelsReducer}),
     StoreRouterConnectingModule.forRoot(),
-    // StoreModule.forRoot(reducers, {
-    //   metaReducers,
-    //   runtimeChecks: {
-    //     strictStateImmutability: true,
-    //     strictActionImmutability: true
-    //   }
-    // })
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
     StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument()
   ],

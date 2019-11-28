@@ -4,8 +4,8 @@ import { Hotel, FavoriteHotels } from 'src/app/shared/interfaces/hotel-interface
 import { Observable, Subscription, Subject } from 'rxjs';
 import { PageEvent } from '@angular/material/paginator';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/redux/app.state';
 import { ChangeSelectedFavHotel } from 'src/app/redux/hotels.actions';
+import { AppState } from 'src/app/reducers';
 
 @Component({
   selector: 'app-favorite-hotels',
@@ -38,10 +38,8 @@ export class FavoriteHotelsComponent implements OnInit, OnDestroy{
   }
 
   public deleteFavoriteHotel(hotel: Hotel): void {
-    let subscription: Subscription;
     this.hotelService.deleteFavorite(hotel).subscribe();
-    this.refreshFavHotel(); 
-    subscription.unsubscribe();   
+    this.refreshFavHotel();    
   }
 
   public selectFavHotel(selHotel: Hotel): void {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Hotels } from 'src/app/shared/interfaces/hotel-interface';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/redux/app.state';
+import { AppState } from 'src/app/reducers';
 
 @Component({
   selector: 'app-weather',

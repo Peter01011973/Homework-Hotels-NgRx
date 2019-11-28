@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Hotels } from 'src/app/shared/interfaces/hotel-interface';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/redux/app.state';
 import { Observable } from 'rxjs';
+import { AppState } from 'src/app/reducers';
 
 @Component({
   selector: 'app-profile',

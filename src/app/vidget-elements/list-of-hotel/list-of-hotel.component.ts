@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
 import { Hotel, Hotels } from 'src/app/shared/interfaces/hotel-interface';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/redux/app.state';
 import { ChangeSelectedHotel } from 'src/app/redux/hotels.actions';
+import { AppState } from 'src/app/reducers';
 
 @Component({
   selector: 'app-list-of-hotel',

@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { LoadHotels, ChangeSelectedHotel, DeleteHotel, LoadFavHotels, DeleteFavHotel, AddFavHotel, ChangeSelectedFavHotel } from './hotels.actions';
 
-const initialState = {hotels: [], favoriteHotels: [], isPressedAddFavHotel: false}
+const initialState = {hotels: [], selectedHotel: null, favoriteHotels: [], selectedFavHotel: null}
 
 export const HotelsReducer = createReducer(initialState,
     on(AddFavHotel, (state, action) => ({
